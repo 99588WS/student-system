@@ -11,12 +11,12 @@ import static com.juzi.project.constant.SchoolClassConstant.INITIAL_CLASS_NUMBER
  */
 public class SchoolClassDataBase {
 
-    public static SchoolClass[] schoolClasses = new SchoolClass[INITIAL_CLASS_NUMBER];
+    public static SchoolClass[] SCHOOL_CLASS_DB = new SchoolClass[INITIAL_CLASS_NUMBER];
 
     static {
-        schoolClasses[0] = new SchoolClass("101", 50);
-        schoolClasses[1] = new SchoolClass("102", 49);
-        schoolClasses[2] = new SchoolClass("201", 37);
-        schoolClasses[3] = new SchoolClass("202", 40);
+        SCHOOL_CLASS_DB[0] = new SchoolClass("101", 50);
+        SCHOOL_CLASS_DB[1] = new SchoolClass("102", 49);
+        SCHOOL_CLASS_DB[2] = new SchoolClass("201", 37);
+        SCHOOL_CLASS_DB[3] = new SchoolClass("202", 40);
     }
 }

@@ -2,7 +2,7 @@ package com.juzi.project.util;
 
 import com.juzi.project.entity.SchoolClass;
 
-import static com.juzi.project.db.SchoolClassDataBase.schoolClasses;
+import static com.juzi.project.db.SchoolClassDataBase.SCHOOL_CLASS_DB;
 
 /**
  * 校验工具类
@@ -17,7 +17,7 @@ public class CheckUtil {
      * @return true - 合法， false - 非法
      */
     public static boolean checkSchoolClassId(String sClassId) {
-        for (SchoolClass schoolClass : schoolClasses) {
+        for (SchoolClass schoolClass : SCHOOL_CLASS_DB) {
             if(schoolClass.getsClassId().equals(sClassId)) {
                 return true;
             }
