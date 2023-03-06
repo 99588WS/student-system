@@ -12,4 +12,8 @@ public class StudentUtil {
     public static Integer generateStuId() {
         return STU_ID++;
     }
+
+    public static Integer getStuId() {
+        return STU_ID;
+    }
 }

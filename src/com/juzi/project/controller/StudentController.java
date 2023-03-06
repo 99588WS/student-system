@@ -4,6 +4,8 @@ import com.juzi.project.entity.Student;
 import com.juzi.project.service.IStudentService;
 import com.juzi.project.service.impl.StudentServiceImpl;
 
+import static com.juzi.project.db.StudentDataBase.STUDENT_DB;
+
 /**
  * 学生管理接口
  *
@@ -11,7 +13,7 @@ import com.juzi.project.service.impl.StudentServiceImpl;
  */
 public class StudentController {
 
-    private IStudentService studentService = new StudentServiceImpl();
+    private final IStudentService studentService = new StudentServiceImpl();
 
     /**
      * 添加学生信息
@@ -29,34 +31,37 @@ public class StudentController {
      * @param students 学生信息
      */
     public void addBatchStudent(Student[] students) {
-        // TODO: 2023/3/6 调用接口
+        studentService.addBatchStudent(students);
     }
 
     /**
      * 根据学生id删除学生信息
      *
      * @param stuId 学生id
+     * @return 是否删除成功
      */
-    public void deleteStudentById(Integer stuId) {
-
+    public boolean deleteStudentById(Integer stuId) {
+        return studentService.deleteStudentById(stuId);
     }
 
     /**
      * 批量删除学生信息
      *
      * @param stuIds 学生id
+     * @return 是否删除成功
      */
-    public void deleteBatchStudent(Integer[] stuIds) {
-        // TODO: 2023/3/6 调用接口
+    public boolean deleteBatchStudent(Integer[] stuIds) {
+        return studentService.deleteBatchStudent(stuIds);
     }
 
     /**
      * 根据学生id修改新的学生信息
      *
      * @param newStudent 新的学生信息
+     * @return 是否修改成功
      */
-    public void updateStudentById(Student newStudent) {
-
+    public boolean updateStudentById(Student newStudent) {
+        return studentService.updateStudentById(newStudent);
     }
 
     /**
@@ -65,7 +70,7 @@ public class StudentController {
      * @return 所有学生信息
      */
     public Student[] listStudents() {
-         return null;
+        return STUDENT_DB;
     }
 
     /**
@@ -75,7 +80,7 @@ public class StudentController {
      * @return 匹配的学生信息
      */
     public Student queryStudentById(Integer stuId) {
-        return null;
+        return studentService.queryStudentById(stuId);
     }
 
     /**
@@ -85,7 +90,7 @@ public class StudentController {
      * @return 匹配的学生信息
      */
     public Student[] queryStudentByName(String stuName) {
-        return null;
+        return studentService.queryStudentByName(stuName);
     }
 
 }
