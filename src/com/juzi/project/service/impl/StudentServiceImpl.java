@@ -2,10 +2,12 @@ package com.juzi.project.service.impl;
 
 import com.juzi.project.entity.Student;
 import com.juzi.project.service.IStudentService;
-import com.juzi.project.util.CheckUtil;
 import com.juzi.project.util.StudentUtil;
 
 import static com.juzi.project.db.StudentDataBase.STUDENT_DB;
+import static com.juzi.project.util.CheckUtil.checkStuId;
+import static com.juzi.project.util.CheckUtil.checkStudent;
+import static com.juzi.project.util.StudentUtil.expendCapacity;
 
 /**
  * 学生业务接口实现类
@@ -26,7 +28,7 @@ public class StudentServiceImpl implements IStudentService {
         boolean flag = StudentUtil.checkMemory();
         if(flag) {
             // 需要扩容
-            StudentUtil.expendCapacity();
+            expendCapacity();
         }
 
         // 保存数据库
@@ -42,6 +44,13 @@ public class StudentServiceImpl implements IStudentService {
             // 生成id
             Integer stuId = StudentUtil.generateStuId();
             student.setStuId(stuId);
+
+            // 判断是否需要扩容
+            boolean flag = StudentUtil.checkMemory();
+            if(flag) {
+                // 需要扩容
+                expendCapacity();
+            }
 
             // 保存数据库
             STUDENT_DB[stuId - 1] = student;
@@ -106,29 +115,5 @@ public class StudentServiceImpl implements IStudentService {
             }
         }
         return students;
-    }
-
-    private void checkStuId(Integer stuId) {
-        if (stuId <= 0 || stuId > StudentUtil.getStuId()) {
-            throw new RuntimeException("学生id不合法！");
-        }
-    }
-
-    private void checkStudent(Student student) {
-        String stuName = student.getStuName();
-        Integer stuAge = student.getStuAge();
-        String sClassId = student.getsClassId();
-
-        if (stuName == null || "".equals(stuName)) {
-            throw new RuntimeException("学生姓名不合法！");
-        }
-
-        if (stuAge == null || stuAge < 0 || stuAge > 50) {
-            throw new RuntimeException("学生年龄不合法");
-        }
-
-        if (sClassId == null || !CheckUtil.checkSchoolClassId(sClassId)) {
-            throw new RuntimeException("教室id不合法");
-        }
     }
 }

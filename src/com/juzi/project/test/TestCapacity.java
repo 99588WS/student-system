@@ -24,13 +24,13 @@ public class TestCapacity {
             studentController.addBatchStudent(students);
             int length = STUDENT_DB.length;
             System.out.println("length = " + length);
-            StudentUtil.showInfo();
+            StudentUtil.showStudentInfo();
             // 扩容
             StudentUtil.expendCapacity();
             length = STUDENT_DB.length;
             System.out.println("after expending, length = " + length);
             studentController.addStudent(new Student("zhangsan", 19, "101"));
-            StudentUtil.showInfo();
+            StudentUtil.showStudentInfo();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

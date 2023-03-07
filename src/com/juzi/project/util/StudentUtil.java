@@ -39,15 +39,16 @@ public class StudentUtil {
         Student[] newStudents = new Student[CURRENT_NUMBER];
         // 复制原有数据
         System.arraycopy(STUDENT_DB, 0, newStudents, 0, STUDENT_DB.length);
+        // 更改数据库指向
         STUDENT_DB = newStudents;
     }
 
     /**
-     * 展示信息函数
+     * 展示学生信息函数
      */
-    public static void showInfo() {
+    public static void showStudentInfo() {
         for (Student student : STUDENT_DB) {
-            if(student == null) {
+            if (student == null) {
                 continue;
             }
             System.out.println(student);
