@@ -22,6 +22,13 @@ public class StudentServiceImpl implements IStudentService {
         Integer stuId = StudentUtil.generateStuId();
         student.setStuId(stuId);
 
+        // 判断是否需要扩容
+        boolean flag = StudentUtil.checkMemory();
+        if(flag) {
+            // 需要扩容
+            StudentUtil.expendCapacity();
+        }
+
         // 保存数据库
         STUDENT_DB[stuId - 1] = student;
 
