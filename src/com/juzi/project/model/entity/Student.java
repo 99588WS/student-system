@@ -1,5 +1,7 @@
 package com.juzi.project.model.entity;
 
+import java.util.Objects;
+
 /**
  * 学生信息类
  *
@@ -75,5 +77,22 @@ public class Student {
                 ", stuAge=" + stuAge +
                 ", sClassId='" + sClassId + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Student student = (Student) o;
+        return Objects.equals(stuId, student.stuId) && Objects.equals(stuName, student.stuName) && Objects.equals(stuAge, student.stuAge) && Objects.equals(sClassId, student.sClassId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(stuId, stuName, stuAge, sClassId);
     }
 }

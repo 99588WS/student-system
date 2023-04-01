@@ -70,8 +70,7 @@ public class LinkedListUtil {
         }
         ListNode curr = head;
         while (curr != null) {
-            // TODO: 2023/4/1 判断StuId
-            if (StudentUtil.isSame(curr.getStudent(), listNode.getStudent())) {
+            if (curr.getStudent().getStuId().equals(listNode.getStudent().getStuId())) {
                 curr.setStudent(listNode.getStudent());
             }
             curr = curr.getNext();
@@ -85,8 +84,17 @@ public class LinkedListUtil {
      * @return student
      */
     public static Student selectStudent(Integer stuId) {
-        // TODO: 2023/4/1 遍历比较
-        return null;
+        if (head == null) {
+            return null;
+        }
+        ListNode curr = head;
+        while(curr != null) {
+            if(curr.getStudent().getStuId().equals(stuId)) {
+                return curr.getStudent();
+            }
+            curr = curr.getNext();
+        }
+        throw new RuntimeException("查询无果");
     }
 
     /**

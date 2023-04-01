@@ -79,7 +79,7 @@ public class StudentUtil {
     }
 
     /**
-     * 传入的学生信息存在并且有更改
+     * 比较新学生和老学生
      *
      * @param newStudent 新的学生信息
      * @return !null && !same
@@ -88,7 +88,6 @@ public class StudentUtil {
         if (newStudent == null || oldStudent == null) {
             return false;
         }
-        // TODO: 2023/4/1 还需要比较其他字段 
-        return newStudent.getStuAge().equals(oldStudent.getStuAge());
+        return newStudent.equals(oldStudent);
     }
 }
