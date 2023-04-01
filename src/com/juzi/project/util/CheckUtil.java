@@ -1,7 +1,7 @@
 package com.juzi.project.util;
 
-import com.juzi.project.entity.SchoolClass;
-import com.juzi.project.entity.Student;
+import com.juzi.project.model.entity.SchoolClass;
+import com.juzi.project.model.entity.Student;
 
 import static com.juzi.project.db.SchoolClassDataBase.SCHOOL_CLASS_DB;
 

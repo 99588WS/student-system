@@ -1,6 +1,6 @@
 package com.juzi.project.util;
 
-import com.juzi.project.entity.Student;
+import com.juzi.project.model.entity.Student;
 
 import static com.juzi.project.constant.StudentConstant.*;
 import static com.juzi.project.db.StudentDataBase.STUDENT_DB;
@@ -76,5 +76,19 @@ public class StudentUtil {
         return !oldStudent.getStuAge().equals(stuAge)
                 || !oldStudent.getStuName().equals(stuName)
                 || !oldStudent.getsClassId().equals(sClassId);
+    }
+
+    /**
+     * 传入的学生信息存在并且有更改
+     *
+     * @param newStudent 新的学生信息
+     * @return !null && !same
+     */
+    public static boolean isSame(Student newStudent, Student oldStudent) {
+        if (newStudent == null || oldStudent == null) {
+            return false;
+        }
+        // TODO: 2023/4/1 还需要比较其他字段 
+        return newStudent.getStuAge().equals(oldStudent.getStuAge());
     }
 }

@@ -1,6 +1,6 @@
 package com.juzi.project.controller;
 
-import com.juzi.project.entity.Student;
+import com.juzi.project.model.entity.Student;
 import com.juzi.project.service.IStudentService;
 import com.juzi.project.service.impl.StudentServiceImpl;
 import com.juzi.project.util.CheckUtil;

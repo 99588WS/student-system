@@ -1,6 +1,6 @@
 package com.juzi.project.db;
 
-import com.juzi.project.entity.Student;
+import com.juzi.project.model.entity.Student;
 
 import static com.juzi.project.constant.StudentConstant.INITIAL_NUMBER;
 
