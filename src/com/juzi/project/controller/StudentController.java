@@ -13,7 +13,7 @@ import static com.juzi.project.db.StudentDataBase.STUDENT_DB;
  */
 public class StudentController {
 
-    private final IStudentService studentService = new StudentServiceImpl();
+    private static final IStudentService studentService = new StudentServiceImpl();
 
     /**
      * 添加学生信息
