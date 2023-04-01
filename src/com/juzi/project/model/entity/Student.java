@@ -1,4 +1,4 @@
-package com.juzi.project.entity;
+package com.juzi.project.model.entity;
 
 /**
  * 学生信息类
@@ -29,6 +29,10 @@ public class Student {
     public Student() {
     }
 
+    public Student(Integer stuAge) {
+        this.stuAge = stuAge;
+    }
+
     public Student(String stuName, Integer stuAge, String sClassId) {
         this.stuName = stuName;
         this.stuAge = stuAge;
@@ -45,10 +49,6 @@ public class Student {
 
     public String getStuName() {
         return stuName;
-    }
-
-    public void setStuName(String stuName) {
-        this.stuName = stuName;
     }
 
     public Integer getStuAge() {

@@ -1,6 +1,6 @@
 package com.juzi.project.service;
 
-import com.juzi.project.entity.Student;
+import com.juzi.project.model.entity.Student;
 
 /**
  * 学生业务接口

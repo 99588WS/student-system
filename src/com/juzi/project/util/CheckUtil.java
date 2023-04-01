@@ -1,7 +1,7 @@
 package com.juzi.project.util;
 
-import com.juzi.project.entity.SchoolClass;
-import com.juzi.project.entity.Student;
+import com.juzi.project.model.entity.SchoolClass;
+import com.juzi.project.model.entity.Student;
 
 import static com.juzi.project.db.SchoolClassDataBase.SCHOOL_CLASS_DB;
 
@@ -59,6 +59,17 @@ public class CheckUtil {
 
         if (sClassId == null || !CheckUtil.checkSchoolClassId(sClassId)) {
             throw new RuntimeException("教室id不合法");
+        }
+    }
+
+    /**
+     * 前校验
+     *
+     * @param condition true - 非法
+     */
+    public static void preCheck(boolean condition) {
+        if(condition) {
+            throw new RuntimeException("操作非法！");
         }
     }
 }

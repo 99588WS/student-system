@@ -1,4 +1,4 @@
-package com.juzi.project.entity;
+package com.juzi.project.model.entity;
 
 /**
  * 学校班级

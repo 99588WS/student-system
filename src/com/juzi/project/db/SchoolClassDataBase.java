@@ -1,6 +1,6 @@
 package com.juzi.project.db;
 
-import com.juzi.project.entity.SchoolClass;
+import com.juzi.project.model.entity.SchoolClass;
 
 import static com.juzi.project.constant.SchoolClassConstant.INITIAL_CLASS_NUMBER;
 

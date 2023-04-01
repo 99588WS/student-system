@@ -1,8 +1,11 @@
 package com.juzi.project.controller;
 
-import com.juzi.project.entity.Student;
+import com.juzi.project.model.entity.Student;
 import com.juzi.project.service.IStudentService;
 import com.juzi.project.service.impl.StudentServiceImpl;
+import com.juzi.project.util.CheckUtil;
+import com.juzi.project.util.StringUtil;
+import com.juzi.project.util.StudentUtil;
 
 import static com.juzi.project.db.StudentDataBase.STUDENT_DB;
 
@@ -13,7 +16,7 @@ import static com.juzi.project.db.StudentDataBase.STUDENT_DB;
  */
 public class StudentController {
 
-    private final IStudentService studentService = new StudentServiceImpl();
+    private static final IStudentService studentService = new StudentServiceImpl();
 
     /**
      * 添加学生信息
@@ -22,6 +25,7 @@ public class StudentController {
      * @return 学生id
      */
     public Integer addStudent(Student student) {
+        CheckUtil.preCheck(student == null);
         return studentService.addStudent(student);
     }
 
@@ -31,6 +35,7 @@ public class StudentController {
      * @param students 学生信息
      */
     public void addBatchStudent(Student[] students) {
+        CheckUtil.preCheck(students == null);
         studentService.addBatchStudent(students);
     }
 
@@ -41,6 +46,7 @@ public class StudentController {
      * @return 是否删除成功
      */
     public boolean deleteStudentById(Integer stuId) {
+        CheckUtil.checkStuId(stuId);
         return studentService.deleteStudentById(stuId);
     }
 
@@ -51,6 +57,7 @@ public class StudentController {
      * @return 是否删除成功
      */
     public boolean deleteBatchStudent(Integer[] stuIds) {
+        CheckUtil.preCheck(stuIds == null);
         return studentService.deleteBatchStudent(stuIds);
     }
 
@@ -61,11 +68,13 @@ public class StudentController {
      * @return 是否修改成功
      */
     public boolean updateStudentById(Student newStudent) {
+        CheckUtil.preCheck(StudentUtil.isSame(newStudent));
         return studentService.updateStudentById(newStudent);
     }
 
     /**
      * 查询所有学生信息
+     * todo 管理员使用
      *
      * @return 所有学生信息
      */
@@ -80,6 +89,7 @@ public class StudentController {
      * @return 匹配的学生信息
      */
     public Student queryStudentById(Integer stuId) {
+        CheckUtil.checkStuId(stuId);
         return studentService.queryStudentById(stuId);
     }
 
@@ -90,6 +100,7 @@ public class StudentController {
      * @return 匹配的学生信息
      */
     public Student[] queryStudentByName(String stuName) {
+        CheckUtil.preCheck(!StringUtil.isNotBlank(stuName));
         return studentService.queryStudentByName(stuName);
     }
 

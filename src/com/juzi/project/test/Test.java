@@ -1,7 +1,7 @@
 package com.juzi.project.test;
 
 import com.juzi.project.controller.StudentController;
-import com.juzi.project.entity.Student;
+import com.juzi.project.model.entity.Student;
 
 import java.util.Arrays;
 
