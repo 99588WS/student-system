@@ -47,10 +47,6 @@ public class Student {
         return stuName;
     }
 
-    public void setStuName(String stuName) {
-        this.stuName = stuName;
-    }
-
     public Integer getStuAge() {
         return stuAge;
     }

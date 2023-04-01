@@ -54,4 +54,27 @@ public class StudentUtil {
             System.out.println(student);
         }
     }
+
+    /**
+     * 传入的学生信息存在并且有更改
+     *
+     * @param newStudent 新的学生信息
+     * @return !null && !same
+     */
+    public static boolean isSame(Student newStudent) {
+        if (newStudent == null) {
+            return false;
+        }
+        Integer stuId = newStudent.getStuId();
+        String stuName = newStudent.getStuName();
+        Integer stuAge = newStudent.getStuAge();
+        String sClassId = newStudent.getsClassId();
+
+        // 拿到原有的学生信息
+        CheckUtil.checkStuId(stuId);
+        Student oldStudent = STUDENT_DB[stuId];
+        return !oldStudent.getStuAge().equals(stuAge)
+                || !oldStudent.getStuName().equals(stuName)
+                || !oldStudent.getsClassId().equals(sClassId);
+    }
 }

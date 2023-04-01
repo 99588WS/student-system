@@ -61,4 +61,15 @@ public class CheckUtil {
             throw new RuntimeException("教室id不合法");
         }
     }
+
+    /**
+     * 前校验
+     *
+     * @param condition true - 非法
+     */
+    public static void preCheck(boolean condition) {
+        if(condition) {
+            throw new RuntimeException("操作非法！");
+        }
+    }
 }
